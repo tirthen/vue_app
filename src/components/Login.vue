@@ -57,9 +57,13 @@
 <script>
 import { ValidationProvider } from "vee-validate";
 import { extend } from "vee-validate";
-import { email } from "vee-validate/dist/rules";
+import { email, required } from "vee-validate/dist/rules";
 import Axios from "axios";
 extend("email", email);
+extend("required", {
+  ...required,
+  message: "This field is required",
+});
 export default {
   components: {
     ValidationProvider,
